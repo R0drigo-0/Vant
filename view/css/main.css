@@ -1,0 +1,966 @@
+* {
+	padding: 0;
+	margin: 0;
+	font-family: Tahoma, Geneva, Verdana, sans-serif;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+body {
+	width: 100vw !important;
+	height: 92vh !important;
+	transition: all ease 0.2s;
+}
+
+.all {
+	width: 100%;
+	height: 100%;
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+
+ul {
+	list-style-type: none;
+}
+
+.timer {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 9px;
+}
+
+/*Smartphone*/
+@media (max-width: 480px) {
+	.all {
+		display: grid;
+		grid-template-rows: 12% 82% 13%;
+	}
+
+	/*LANGUAGES*/
+	/*top*/
+	.optionsGame > * {
+		border-radius: 0.4rem;
+		padding: 0.4rem;
+	}
+
+	.optionsGame img {
+		width: 31px;
+		height: 31px;
+	}
+
+	.optionBox {
+		margin-left: 27px;
+		margin-right: 2px;
+	}
+
+	::-webkit-scrollbar {
+		width: 2px;
+	}
+
+	.closeIcon {
+		width: 40px;
+		height: 40px;
+		margin: 10px;
+		padding: 5px;
+	}
+
+	label[for="darkModeInput"] {
+		width: 50%;
+		height: 60px;
+		font-size: 1.1rem;
+	}
+
+	label[for="difficultyInput"] {
+		width: 50%;
+		height: 60px;
+		font-size: 1.1rem;
+	}
+
+	.maxRoundsText,
+	.playedGamesText {
+		font-size: 1.4rem;
+	}
+
+	.numberMaxRounds,
+	.playedGamesRounds {
+		font-size: 1.5rem;
+	}
+
+	.maxRoundsBox {
+		width: 90%;
+		margin-left: 5%;
+	}
+
+	.optionBoxSelected > *:not(:first-child) > h4 {
+		font-size: 1.1rem;
+	}
+
+	#language {
+		padding-top: 35px;
+		padding-bottom: 35px;
+
+		margin-bottom: 15px;
+		margin-top: 15px;
+
+		font-size: 1.2rem;
+	}
+
+	/*GAME*/
+	/*top*/
+
+	.round {
+		padding-left: 13px;
+		padding-right: 13px;
+		padding-top: 6px;
+		padding-bottom: 6px;
+
+		font-size: 1.45rem;
+	}
+
+	/*main*/
+
+	.question {
+		margin-bottom: 50px;
+		font-size: 1.4rem;
+	}
+
+	.word {
+		font-size: 1.53rem;
+	}
+
+	.game > div {
+		min-height: 50px;
+		height: 14vh;
+
+		margin-bottom: 35px;
+
+		border-radius: 0.4rem;
+
+		font-size: 1.2rem;
+	}
+
+	.game > div:last-child {
+		margin-bottom: 50px;
+	}
+
+	.game > div:hover {
+		width: 103%;
+	}
+
+	.wordOpiton {
+		font-size: 1.1rem;
+	}
+
+	.languageOption {
+		margin-left: 5px;
+		font-size: 0.8rem;
+	}
+
+	/*retry game*/
+	.endRounds {
+		margin-bottom: 35px;
+	}
+
+	.retryGame > * {
+		height: 14vh;
+		margin-bottom: 30px;
+		border-radius: 0.4rem;
+		font-size: 1.4rem;
+		font-weight: 800;
+	}
+}
+
+/*Tablet*/
+@media (min-width: 481px) and (max-width: 768px) {
+	.all {
+		display: grid;
+		grid-template-rows: 12% 80% 10%;
+	}
+
+	/*LANGUAGE*/
+	/*top*/
+	.title {
+		font-size: 2.2rem;
+	}
+
+	.optionsGame > * {
+		border-radius: 0.4rem;
+		padding: 0.5rem;
+	}
+
+	.optionsGame img {
+		width: 35px;
+		height: 35px;
+	}
+
+	.optionBox {
+		margin-left: 27px;
+		margin-right: 2px;
+	}
+
+	::-webkit-scrollbar {
+		width: 2px;
+	}
+
+	::-webkit-scrollbar-thumb {
+		border-radius: 4px;
+	}
+
+	label[for="darkModeInput"] {
+		width: 50%;
+		height: 80px;
+		font-size: 1.6rem;
+	}
+
+	label[for="difficultyInput"] {
+		width: 50%;
+		height: 80px;
+		font-size: 1.6rem;
+	}
+
+	.maxRoundsText,
+	.playedGamesText {
+		font-size: 1.7rem;
+	}
+
+	.numberMaxRounds,
+	.playedGamesRounds {
+		font-size: 2rem;
+	}
+
+	.maxRoundsBox {
+		width: 90%;
+		margin-left: 5%;
+	}
+
+	.optionBoxSelected > *:not(:first-child) > h4 {
+		font-size: 1.5rem;
+	}
+
+	/*main*/
+	#language {
+		padding-top: 42px;
+		padding-bottom: 42px;
+
+		margin-bottom: 17px;
+		margin-top: 17px;
+
+		font-size: 1.5rem;
+	}
+
+	/*GAME*/
+	/*top*/
+	.round {
+		padding-left: 13px;
+		padding-right: 13px;
+		padding-top: 6px;
+		padding-bottom: 6px;
+
+		font-size: 1.55rem;
+	}
+
+	/*main*/
+	.question {
+		margin-bottom: 100px;
+		font-size: 1.8rem;
+	}
+
+	.word {
+		font-size: 2rem;
+	}
+
+	.game > div {
+		min-height: 50px;
+		height: 14.8vh;
+
+		margin-bottom: 40px;
+
+		font-size: 1.6rem;
+
+		border-radius: 0.4rem;
+
+		transition: all ease 0.25s;
+	}
+
+	.game > div:hover {
+		width: 102%;
+	}
+
+	.game > div:last-child {
+		margin-bottom: 25px;
+	}
+
+	.languageOption {
+		margin-left: 10px;
+		font-size: 1.15rem;
+	}
+
+	/*retry game*/
+	.endRounds {
+		margin-bottom: 40px;
+	}
+
+	.retryGame {
+		width: 100%;
+	}
+
+	.retryGame > * {
+		height: 14vh;
+		margin-bottom: 30px;
+		border-radius: 0.4rem;
+		font-size: 1.4rem;
+		font-weight: 800;
+	}
+
+	.closeIcon {
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		margin: 10px;
+		padding: 5px;
+	}
+}
+
+/*Laptop*/
+@media (min-width: 769px) and (max-width: 1099px) {
+	/* Your styles for laptops go here */
+	.all {
+		display: grid;
+		grid-template-rows: 12% 85% 11%;
+	}
+
+	/*LANGUAGE*/
+	/*top*/
+	.title {
+		font-size: 2.2rem;
+	}
+
+	.optionsGame > * {
+		border-radius: 0.4rem;
+		padding: 0.45rem;
+	}
+
+	.optionsGame img {
+		width: 35px;
+		height: 35px;
+	}
+
+	.optionBox {
+		margin-left: 27px;
+		margin-right: 2px;
+	}
+
+	::-webkit-scrollbar {
+		width: 2px;
+	}
+
+	::-webkit-scrollbar-thumb {
+		border-radius: 4px;
+	}
+
+	label[for="darkModeInput"] {
+		width: 50%;
+		height: 80px;
+		font-size: 1.45rem;
+	}
+
+	label[for="difficultyInput"] {
+		width: 50%;
+		height: 80px;
+		font-size: 1.45rem;
+	}
+
+	.maxRoundsText,
+	.playedGamesText {
+		font-size: 1.5rem;
+	}
+
+	.numberMaxRounds,
+	.playedGamesRounds {
+		font-size: 1.7rem;
+	}
+
+	.maxRoundsBox {
+		width: 90%;
+		margin-left: 5%;
+	}
+
+	.optionBoxSelected > *:not(:first-child) > h4 {
+		font-size: 1.5rem;
+	}
+
+	/*main*/
+	#language {
+		padding-top: 42px;
+		padding-bottom: 42px;
+
+		margin-bottom: 17px;
+		margin-top: 17px;
+
+		font-size: 1.5rem;
+	}
+
+	/*GAME*/
+	/*top*/
+	.round {
+		padding-left: 14px;
+		padding-right: 14px;
+		padding-top: 6px;
+		padding-bottom: 6px;
+
+		font-size: 1.6rem;
+	}
+
+	/*main*/
+	.main {
+		align-items: start !important;
+	}
+
+	.question {
+		margin-bottom: 75px;
+		font-size: 1.6rem;
+	}
+
+	.word {
+		font-size: 1.83rem;
+	}
+
+	.game {
+		margin-top: 35px;
+	}
+
+	.game > div {
+		min-height: 50px;
+		height: 14.4vh;
+
+		margin-bottom: 42px;
+
+		font-size: 1.55rem;
+
+		border-radius: 0.5rem;
+
+		transition: all ease 0.25s;
+	}
+
+	.game > div:hover {
+		width: 102%;
+	}
+
+	.languageOption {
+		margin-left: 10px;
+		font-size: 1rem;
+	}
+
+	/*retry game*/
+	.endGameQuestion {
+		margin-top: 40px !important;
+		margin-bottom: 0 !important;
+	}
+
+	.endRounds {
+		margin-bottom: 60px;
+	}
+
+	.numberEndRounds {
+		font-size: 1.7rem;
+	}
+
+	.retryGame {
+		width: 100%;
+	}
+
+	.retryGame > * {
+		height: 14vh;
+		margin-bottom: 30px;
+		border-radius: 0.4rem;
+		font-size: 1.55rem;
+		font-weight: 800;
+	}
+
+	.closeIcon {
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		margin: 10px;
+		padding: 5px;
+	}
+}
+
+/*PC*/
+@media (min-width: 1100px) {
+	.all {
+		display: grid;
+		grid-template-rows: 12% 90%;
+	}
+
+	/*LANGUAGE*/
+	/*top*/
+	.title {
+		font-size: 2.2rem;
+	}
+
+	.optionsGame > * {
+		border-radius: 0.4rem;
+		padding: 0.45rem;
+	}
+
+	.optionsGame img {
+		width: 35px;
+		height: 35px;
+	}
+
+	.optionBox {
+		margin-left: 27px;
+		margin-right: 2px;
+	}
+
+	::-webkit-scrollbar {
+		width: 2px;
+	}
+
+	::-webkit-scrollbar-thumb {
+		border-radius: 4px;
+	}
+
+	label[for="darkModeInput"] {
+		width: 50%;
+		height: 80px;
+		font-size: 1.45rem;
+	}
+
+	label[for="difficultyInput"] {
+		width: 50%;
+		height: 80px;
+		font-size: 1.45rem;
+	}
+
+	.maxRoundsText,
+	.playedGamesText {
+		font-size: 1.5rem;
+	}
+
+	.numberMaxRounds,
+	.playedGamesRounds {
+		font-size: 1.7rem;
+	}
+
+	.maxRoundsBox {
+		width: 90%;
+		margin-left: 5%;
+	}
+
+	.optionBoxSelected > *:not(:first-child) > h4 {
+		font-size: 1.5rem;
+	}
+
+	/*main*/
+	#language {
+		padding-top: 42px;
+		padding-bottom: 42px;
+
+		margin-bottom: 17px;
+		margin-top: 17px;
+
+		font-size: 1.5rem;
+	}
+
+	/*GAME*/
+	/*top*/
+	.round {
+		padding-left: 14px;
+		padding-right: 14px;
+		padding-top: 6px;
+		padding-bottom: 6px;
+
+		font-size: 1.6rem;
+	}
+
+	/*main*/
+	.main {
+		align-items: start !important;
+	}
+
+	.question {
+		margin-bottom: 75px;
+		font-size: 1.6rem;
+	}
+
+	.word {
+		font-size: 1.83rem;
+	}
+
+	.game {
+		margin-top: 35px;
+	}
+
+	.game > div {
+		min-height: 50px;
+		height: 14.4vh;
+
+		margin-bottom: 42px;
+
+		font-size: 1.55rem;
+
+		border-radius: 0.5rem;
+
+		transition: all ease 0.25s;
+	}
+
+	.game > div:hover {
+		width: 102%;
+	}
+
+	.languageOption {
+		margin-left: 10px;
+		font-size: 1rem;
+	}
+
+	/*retry game*/
+	.endGameQuestion {
+		margin-top: 40px !important;
+		margin-bottom: 0 !important;
+	}
+
+	.endRounds {
+		margin-bottom: 60px;
+	}
+
+	.numberEndRounds {
+		font-size: 1.7rem;
+	}
+
+	.retryGame {
+		width: 100%;
+	}
+
+	.retryGame > * {
+		height: 14vh;
+		margin-bottom: 30px;
+		border-radius: 0.4rem;
+		font-size: 1.55rem;
+		font-weight: 800;
+	}
+
+	.closeIcon {
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		margin: 10px;
+		padding: 5px;
+	}
+}
+
+/* AUX */
+.unselectable {
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-user-drag: none;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.correct {
+	background-color: rgb(168, 219, 91) !important;
+}
+
+.incorrect {
+	background-color: #d93a2c !important;
+}
+
+.showCorrect {
+	background-color: #f1e66b !important;
+}
+
+.optionBoxSelected {
+	border-bottom-left-radius: 12px;
+	border-bottom-right-radius: 12px;
+
+	top: 35vh;
+	width: 100%;
+	height: 35vh;
+	position: absolute;
+
+	animation: gameOptionsSelected 0.55s forwards;
+
+	display: grid;
+	grid-template-rows: 15% 35% 50%;
+
+	z-index: 3;
+
+	transition: all ease 0.3s;
+}
+
+.darkerBackground {
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	z-index: 2;
+	transition: background-color ease 0.5s;
+}
+
+.optionBoxSelected > :not(:first-child) {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.optionBoxSelected > *:not(:first-child) > h4 {
+	font-weight: 800;
+	margin-bottom: 8px;
+}
+
+.optionBoxSelected > *:not(:first-child) > label {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	font-weight: 600;
+}
+
+.closeIcon:hover {
+	background-color: rgba(0, 0, 0, 0.03);
+}
+
+/* ANIMATIONS */
+@keyframes gameOptionsSelected {
+	0% {
+		top: -35vh;
+	}
+	100% {
+		top: 0vh;
+	}
+}
+
+@keyframes gameOptionsUnselected {
+	0% {
+		top: 0vh;
+	}
+	100% {
+		top: -35vh;
+	}
+}
+
+/*#########*/
+/* GENERAL */
+/*#########*/
+
+/*LANGUAGES*/
+/*top*/
+.top {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: 100%;
+	width: 85%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.closeBox {
+	width: 5%;
+	cursor: pointer;
+}
+
+.closeIcon {
+	transition: background-color ease 0.2s;
+}
+
+.title {
+	cursor: pointer;
+}
+
+.titleBox {
+	grid-row: 1;
+	display: flex;
+	align-items: center;
+}
+
+.top > *:not(.titleBox) {
+	grid-column: 2;
+	grid-row: 1;
+}
+
+.top > *:not(.titleBox) {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.optionsGame {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	transition: all ease 0.2s;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 4px;
+}
+
+.closeIcon {
+	border-radius: 50%;
+	cursor: pointer;
+	transition: background-color ease 0.2s;
+}
+
+label[for="darkModeInput"] {
+	display: block;
+
+	background-color: #91c8e4;
+
+	border-radius: 10px;
+
+	box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4),
+		inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+
+	cursor: pointer;
+
+	transition: 0.4s;
+}
+
+label[for="difficultyInput"] {
+	display: block;
+
+	background-color: #b5c99a;
+
+	border-radius: 10px;
+
+	box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4),
+		inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+
+	cursor: pointer;
+
+	transition: 0.4s;
+}
+
+input {
+	width: 0;
+	height: 0;
+	visibility: hidden;
+}
+
+input:checked + label[for="darkModeInput"] {
+	background-color: #654e92;
+}
+
+input:checked + label[for="difficultyInput"] {
+	background-color: #6e91ba;
+}
+
+/*main*/
+.select {
+	height: 100%;
+	width: 100%;
+	overflow-x: hidden;
+	overflow-y: auto;
+
+	display: flex;
+	align-items: center;
+	justify-self: center;
+	flex-direction: column;
+}
+
+#language {
+	width: 85%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	border-radius: 0.4rem;
+
+	font-weight: 800;
+}
+
+.select > * {
+	background: linear-gradient(var(--color) 0 0) no-repeat
+		calc(200% - var(--_p, 0%)) 100%/200% var(--_p, 0.08em);
+	transition: 0.3s var(--_s, 0s),
+		background-position 0.3s calc(0.3s - var(--_s, 0s));
+	cursor: pointer;
+}
+
+.select > *:hover {
+	--_t: var(--h);
+	--_p: 100%;
+	--_s: 0.3s;
+}
+
+/*GAME*/
+/*top*/
+
+.round {
+	border-radius: 0.4rem;
+	align-items: center;
+	justify-content: center;
+}
+
+.optionsGame > * {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	transition: all ease 0.2s;
+	cursor: pointer;
+}
+
+/*main*/
+.main {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: end;
+}
+
+.game {
+	width: 85%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.game > div {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	transition: all ease 0.2s;
+
+	cursor: pointer;
+}
+
+/*retry game*/
+.endGameQuestion {
+	width: 85%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	margin-bottom: auto;
+	margin-top: auto;
+}
+
+.endRounds {
+	color: #e7e7e7;
+}
+
+.retryGame {
+	width: 100%;
+}
+
+.retryGame > * {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	transition: all ease-in 0.2s;
+	cursor: pointer;
+}

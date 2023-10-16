@@ -1,0 +1,103 @@
+/* GENERAL */
+
+body {
+	background-color: #28385e;
+	transition: all ease 0.5s;
+}
+
+/* SELECT LANGUAGE */
+
+.title {
+	color: #e7e7e7;
+	text-shadow: 0px 0px 3px black;
+}
+
+#language {
+	background-color: #121f3e;
+	text-shadow: 0px 0px 2px black;
+}
+
+.select > * {
+	color: #fca311;
+	--color: #135381;
+	background-color: #121f3e;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #8eb8e5;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #79a1cb;
+}
+
+.optionsGame > * {
+	background-color: #f2921d;
+}
+
+.optionsGame > *:hover {
+	background-color: #d7831c;
+}
+
+.maxRoundsBox {
+	border-bottom: 2px solid #394867;
+}
+
+.maxRoundsText,
+.playedGamesText {
+	color: #121f3e;
+	text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
+}
+
+.numberMaxRounds,
+.playedGamesRounds {
+	color: #e7e7e7;
+}
+
+/* GAME */
+
+.round {
+	background-color: rgb(115, 190, 115);
+}
+
+.question {
+	color: #e5e5e5;
+	text-shadow: 0px 0px 2px black;
+}
+
+.word {
+	color: #fca311;
+}
+
+.option {
+	background-color: #8eb8e5;
+}
+
+.option:hover {
+	background-color: #9fcbfb;
+}
+
+.timer {
+	background-color: #f2921d;
+}
+
+/* RETRY GAME */
+.retryGame > * {
+	background-color: #8eb8e5;
+}
+
+.retryGame > *:hover {
+	background-color: #d6f0a7;
+}
+
+.numberEndRounds {
+	color: #fca311;
+}
+
+.retryGame > * {
+	background-color: #cce2a3;
+}
+
+.optionBoxSelected {
+	background-color: #d7831c;
+}

@@ -1,0 +1,595 @@
+/* GENERAL */
+
+* {
+	padding: 0;
+	margin: 0;
+	font-family: Tahoma, Geneva, Verdana, sans-serif;
+	box-sizing: border-box;
+}
+
+html {
+	overflow-x: hidden;
+}
+
+ul {
+	list-style-type: none;
+}
+
+body {
+	display: grid;
+	grid-template-rows: 9% 91%;
+	grid-template-columns: 5% 90% 5%;
+
+	background-color: rgba(0, 0, 0, 0.5);
+
+	height: 92vh !important;
+
+	transition: all ease 0.2s;
+}
+
+/* SELECT LANGUAGE */
+
+.main {
+	grid-row: 2;
+	grid-column: 2;
+	height: 88%;
+	margin-top: 20px;
+}
+
+.titleBox {
+	grid-row: 2;
+
+	display: flex;
+	align-items: center;
+	margin-left: 10%;
+}
+
+.title {
+	cursor: pointer;
+}
+
+.listOfLanguages {
+	margin-bottom: 10px;
+}
+
+.select {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	overflow-y: auto;
+}
+
+.body {
+	opacity: 50%;
+}
+
+.select > * {
+	font-size: 1.05rem;
+	font-weight: 600;
+
+	width: 90%;
+	padding: 15px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+
+	border-radius: 0.5rem;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	background: linear-gradient(var(--color) 0 0) no-repeat
+		calc(200% - var(--_p, 0%)) 100%/200% var(--_p, 0.08em);
+	transition: 0.3s var(--_s, 0s),
+		background-position 0.3s calc(0.3s - var(--_s, 0s));
+
+	cursor: pointer;
+}
+
+.select > *:hover {
+	--_t: var(--h);
+	--_p: 100%;
+	--_s: 0.3s;
+}
+
+.listOfLanguages {
+	height: 100%;
+	overflow-y: auto;
+}
+
+#language {
+	margin-bottom: 10px;
+	margin-top: 10px;
+	font-size: 1.3rem;
+	min-height: 90px;
+	padding-bottom: 1vh;
+	padding-top: 1vh;
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 4px;
+}
+
+.optionsGame {
+	grid-row: 2;
+	grid-column: 2;
+	display: flex;
+	justify-content: end;
+	align-items: center;
+}
+
+.optionsGame > * {
+	border-radius: 10%;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 20px;
+
+	transition: background-color ease 0.2s, width ease 1s, height ease 1s;
+	cursor: pointer;
+}
+
+.optionsGame > *:last-child {
+	margin-right: 13%;
+}
+
+.optionsGame > * > * {
+	width: 30px;
+	height: 30px;
+}
+
+.statisticsBox {
+	grid-row: 2;
+	grid-column: 2;
+}
+
+label[for="darkModeInput"] {
+	width: 50%;
+	height: 60px;
+
+	display: block;
+
+	background-color: #91c8e4;
+
+	border-radius: 10px;
+
+	box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4),
+		inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+
+	cursor: pointer;
+
+	transition: 0.4s;
+}
+
+label[for="difficultyInput"] {
+	width: 50%;
+	height: 60px;
+
+	display: block;
+
+	background-color: #b5c99a;
+
+	border-radius: 10px;
+
+	box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4),
+		inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+
+	cursor: pointer;
+
+	transition: 0.4s;
+}
+
+/*
+label[for="darkModeInput"]::after {
+	width: 34px;
+	height: 34px;
+
+	content: "";
+
+	position: absolute;
+
+	top: 92px;
+	left: 79px;
+
+	background-color: #ffe17b;
+
+	border-radius: 50%;
+
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+
+	transition: 0.3s;
+}
+*/
+/*
+label[for="difficultyInput"]::after {
+	width: 34px;
+	height: 34px;
+
+	content: "";
+
+	position: absolute;
+
+	top: 193px;
+	left: 79px;
+
+	background-color: #eae9de;
+
+	border-radius: 50%;
+
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+
+	transition: 0.3s;
+}
+
+label:active::after {
+	width: 40px;
+}
+*/
+
+input {
+	width: 0;
+	height: 0;
+	visibility: hidden;
+}
+
+input:checked + label[for="darkModeInput"] {
+	background-color: #654e92;
+}
+
+input:checked + label[for="difficultyInput"] {
+	background-color: #6e91ba;
+}
+
+/*
+input:checked + label[for="darkModeInput"]::after {
+	left: 178px;
+	transform: translateX(-100%);
+	background-color: #eadbc8;
+}
+
+input:checked + label[for="difficultyInput"]::after {
+	left: 178px;
+	transform: translateX(-100%);
+	background-color: #321e1e;
+}
+*/
+
+.maxRoundsText,
+.playedGamesText {
+	font-size: 1.4rem;
+}
+
+.numberMaxRounds,
+.playedGamesRounds {
+	font-size: 1.5rem;
+}
+
+.maxRoundsBox {
+	width: 90%;
+	margin-left: 5%;
+}
+
+/* GAME */
+
+.game {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.top {
+	grid-row: 1;
+	grid-column: 2;
+
+	display: grid;
+	grid-template-columns: 50% 50%;
+	margin-top: 20px;
+}
+
+.roundBox {
+	grid-row: 2;
+	margin-right: 6%;
+	display: flex;
+	justify-content: end;
+	align-items: center;
+}
+
+.round {
+	width: 35px;
+	height: 33px;
+
+	border-radius: 8px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.question {
+	font-size: 1.3rem;
+	margin-bottom: 15px;
+}
+
+.word {
+	font-size: 1.5rem;
+	font-weight: 800;
+}
+
+.option {
+	width: 93.5%;
+
+	height: 11vh;
+	min-height: 55px;
+
+	font-size: 1.35rem;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	margin: 20px;
+
+	border-radius: 7px;
+
+	transition: all ease 0.2s;
+
+	cursor: pointer;
+}
+
+.languageOption {
+	margin-left: 5px;
+	color: rgb(9, 9, 9);
+}
+
+.option:hover {
+	width: 95.5%;
+	box-shadow: 0px 0px 10px 2px rgba(255, 255, 255, 0.3);
+}
+
+.timer {
+	width: 100vw;
+	height: 10px;
+	position: absolute;
+	top: 0px;
+
+	/*transition: all ease-in-out 7s*/
+}
+
+/* RETRY GAME */
+.endGameQuestion {
+	display: grid;
+	height: 100%;
+	grid-template-rows: 20% 80%;
+}
+
+.endRounds {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.retryGame {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 20px;
+}
+
+.retryGame > * {
+	width: 90%;
+	min-width: 180px;
+	max-width: 45rem;
+
+	height: 7vh;
+	min-height: 30px;
+
+	font-size: 1.15rem;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	margin: 12px;
+
+	border-radius: 7px;
+
+	transition: all ease-in 0.14s;
+	cursor: pointer;
+}
+
+.retryGame > *:hover {
+	box-shadow: 0px 0px 10px 2px rgba(255, 255, 255, 0.3);
+	width: 92.5%;
+}
+
+.endRounds {
+	font-size: 2rem;
+	color: #e5e5e5;
+}
+
+.numberEndRounds {
+	font-size: 2.2rem;
+	margin-left: 7px;
+}
+
+.retryGame > * {
+	font-weight: 600;
+}
+
+.yes {
+}
+
+.no {
+}
+
+/* AUX */
+.unselectable {
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-user-drag: none;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.correct {
+	background-color: rgb(168, 219, 91) !important;
+}
+
+.incorrect {
+	background-color: #d93a2c !important;
+}
+
+.showCorrect {
+	background-color: #f1e66b !important;
+}
+
+.optionBoxSelected {
+	border-bottom-left-radius: 12px;
+	border-bottom-right-radius: 12px;
+
+	top: 35vh;
+	width: 100%;
+	height: 35vh;
+	position: absolute;
+
+	animation: gameOptionsSelected 0.55s forwards;
+
+	display: grid;
+	grid-template-rows: 15% 35% 50%;
+
+	z-index: 3;
+
+	transition: all ease 0.3s;
+}
+
+/* SETTINGS */
+
+.optionBoxSelected > :not(:first-child) {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.optionBoxSelected > *:not(:first-child) > h4 {
+	font-size: 1.3rem;
+	font-weight: 800;
+	margin-bottom: 8px;
+}
+
+.optionBoxSelected > *:not(:first-child) > label {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	font-size: 1.2rem;
+	font-weight: 600;
+}
+
+.darkerBackground {
+	width: 100vw;
+	height: 100%;
+	position: absolute;
+	z-index: 1;
+	transition: background-color ease 0.5s;
+}
+
+.closeIcon {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	cursor: pointer;
+	margin: 10px;
+	transition: background-color ease 0.2s;
+	padding: 5px;
+}
+
+.closeIcon:hover {
+	background-color: rgba(0, 0, 0, 0.03);
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 1100px) {
+	body {
+		grid-template-columns: 15% 70% 15%;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	/* Styles for smartphones go here */
+	.option {
+		height: 12vh;
+		font-size: 1.2rem;
+	}
+
+	.retryGame > * {
+		height: 11vh;
+	}
+
+	.question {
+		font-size: 1.4rem;
+		margin-bottom: 30px;
+	}
+
+	.word {
+		font-size: 1.65rem;
+	}
+
+	.game {
+		margin-top: 65px;
+	}
+
+	.round {
+		width: 38px;
+		height: 36px;
+
+		font-size: 1.25rem;
+	}
+
+	.endRounds {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		font-size: 1.5rem;
+	}
+
+	.numberEndRounds {
+		font-size: 1.65rem;
+		font-weight: 1000;
+	}
+
+	#language {
+		width: 94%;
+	}
+}
+
+/* ANIMATIONS */
+@keyframes gameOptionsSelected {
+	0% {
+		top: 0vh;
+	}
+	100% {
+		top: -35vh;
+	}
+}
+
+@keyframes gameOptionsUnselected {
+	0% {
+		top: 0vh;
+	}
+	100% {
+		top: -35vh;
+	}
+}
