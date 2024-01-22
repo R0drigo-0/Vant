@@ -10,7 +10,7 @@ function reloadCss() {
 Hace una peticion al controllador donde le duevuelve un JSON con todas las palabras y sus IDs
 */
 async function getWords(arrayOfId) {
-	const allWords = await fetch("/data/words.json")
+	const allWords = await fetch("data/words.json")
 	.then(response => response.json());
 	
 
