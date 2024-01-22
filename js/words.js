@@ -14,7 +14,6 @@ function getArrayOfLangugagesProgresive(selectedLanguage) {
 	//Se crea un array con los idiomas que saldara cada palabra
 	let optionsLanguage = [];
 	cookieJSON = cookieToJSON();
-	console.log;
 	for (let i = 0; i < 3; i++) {
 		if (cookieJSON["difficulty"] == "progressive") {
 			let aux = selectRandomLanguageProgresive(selectedLanguage);

@@ -9,18 +9,18 @@ function reloadCss() {
 /*
 Hace una peticion al controllador donde le duevuelve un JSON con todas las palabras y sus IDs
 */
-async function get_words(selectedLanguage, arrayOfId) {
-	let formData = new FormData();
-	formData.append("language", selectedLanguage);
-	formData.append("id", JSON.stringify(arrayOfId));
+async function getWords(arrayOfId) {
+	const allWords = await fetch("/data/words.json")
+	.then(response => response.json());
+	
 
-	return await fetch("../controller/get_temp_languages.php", {
-		method: "POST",
-		body: formData,
-		headers: {},
-	})
-		.then((response) => response.json())
-		.catch((error) => console.error(error));
+	let words = []
+	for(let i in arrayOfId)
+	{
+		words.push(allWords[i])
+	}
+
+	return words;
 }
 
 //Indica el tiempo que le queda al usuario por cada ronda
@@ -61,9 +61,12 @@ function mainGame(words, selectedLanguage) {
 
 	//Contiene las palabras con las opciones
 	let optionsWords = getArrayOfWords(indexWord);
+	console.log(words[indexWord]);
 
 	//Contiene los idiomas de las opciones
 	let optionsLanguage = getArrayOfLangugagesProgresive(selectedLanguage);
+	for(let i = 0; i < optionsLanguage.length ; i++)
+		optionsLanguage[i] = idToLanguage(optionsLanguage[i]);
 
 	//Indicia el orden en que se accede al array
 	let orderWords = getOrderArray();
@@ -76,12 +79,11 @@ function mainGame(words, selectedLanguage) {
 	boolMenuLanguage = false;
 	boolGame = true;
 	boolRetry = false;
-
 	renderRoundNumber();
 	const game = renderGame();
 	function renderCompleteRound() {
 		renderTimer(game);
-		meaningWord = words[indexWord][Number(selectedLanguage) + 1];
+		meaningWord = words[indexWord][idToLanguage(selectedLanguage)];
 		while (meaningWord == null) {
 			utilizedNumbers.push(indexWord);
 			indexWord = selectUniqueRandomNumberWord();
@@ -137,6 +139,7 @@ function mainGame(words, selectedLanguage) {
 					words[indexWord][parseInt(selectedClass.parentElement.id) + 1];
 
 				//Comprueba si la palabra es valida
+				console.log(selectedClass.textContent.toString().toLowerCase());
 				if (
 					auxSelectedOption.toString().toLowerCase() ==
 					selectedClass.textContent.toString().toLowerCase()
@@ -150,7 +153,7 @@ function mainGame(words, selectedLanguage) {
 						updateRoundCount(round);
 						removeRoundCounter();
 						removePreviousRound();
-						mainGame(words, selectedLanguage);
+						mainGame(words, idToLanguage(selectedLanguage));
 						selectedClass.parentElement.parentElement.style.pointerEvents =
 							"all";
 					}, 600);
@@ -213,7 +216,7 @@ function mainGame(words, selectedLanguage) {
 
 					removeRetryGame();
 					getUniqueRandomNumbers().then((id) =>
-						get_words(selectedLanguage, id).then((words) => {
+						getWords(id).then((words) => {
 							mainGame(words, selectedLanguage);
 						})
 					);
@@ -352,7 +355,7 @@ function startAll() {
 		) {
 			popstateToMenu();
 			getUniqueRandomNumbers().then((id) =>
-				get_words(selectedLanguage, id).then((words) => {
+				getWords(id).then((words) => {
 					mainGame(words, selectedLanguage);
 				})
 			);

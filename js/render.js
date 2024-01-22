@@ -83,7 +83,8 @@ function renderWords(
 	const option = document.createElement("div");
 
 	option.classList.add("unselectable", "option");
-	option.setAttribute("id", optionsLanguage[orderWords[index]] - 1);
+	console.log(optionsLanguage[orderWords[index]]);
+	option.setAttribute("id", optionsLanguage[orderWords[index]]);
 
 	const optionWord = document.createElement("h4");
 	optionWord.setAttribute(
@@ -105,7 +106,7 @@ function renderWords(
 	);
 	languageOption.setAttribute("class", "languageOption");
 	languageOption.textContent +=
-		"(" + idToLanguage(optionsLanguage[orderWords[index]] - 1) + ")";
+		"(" + optionsLanguage[orderWords[index]]+ ")";
 
 	option.appendChild(optionWord);
 	option.appendChild(languageOption);
