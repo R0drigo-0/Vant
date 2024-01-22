@@ -154,7 +154,7 @@ function renderOptionsGame() {
 	const imgOption = document.createElement("img");
 	imgOption.setAttribute(
 		"src",
-		"view/assets/settings_FILL1_wght400_GRAD0_opsz40.svg"
+		"/assets/settings_FILL1_wght400_GRAD0_opsz40.svg"
 	);
 	imgOption.setAttribute("id", "settings");
 	imgOption.setAttribute("alt", "settings");
@@ -170,7 +170,7 @@ function renderOptionsGame() {
 	const imgStatistics = document.createElement("img");
 	imgStatistics.setAttribute(
 		"src",
-		"view/assets/leaderboard_FILL1_wght400_GRAD0_opsz40.svg"
+		"/assets/leaderboard_FILL1_wght400_GRAD0_opsz40.svg"
 	);
 	imgStatistics.setAttribute("id", "statistics");
 	imgStatistics.setAttribute("alt", "statistics");
@@ -217,7 +217,7 @@ function renderSettings() {
 	closeIcon.setAttribute("id", "closeIcon ");
 	closeIcon.setAttribute(
 		"src",
-		"view/assets/close_FILL0_wght400_GRAD0_opsz48.svg"
+		"/assets/close_FILL0_wght400_GRAD0_opsz48.svg"
 	);
 
 	closeBox.appendChild(closeIcon);
@@ -307,7 +307,7 @@ function renderStatistics() {
 	closeIcon.setAttribute("id", "closeIcon ");
 	closeIcon.setAttribute(
 		"src",
-		"view/assets/close_FILL0_wght400_GRAD0_opsz48.svg"
+		"assets/close_FILL0_wght400_GRAD0_opsz48.svg"
 	);
 
 	closeBox.appendChild(closeIcon);
