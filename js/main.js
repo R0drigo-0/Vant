@@ -61,7 +61,6 @@ function mainGame(words, selectedLanguage) {
 
 	//Contiene las palabras con las opciones
 	let optionsWords = getArrayOfWords(indexWord);
-	console.log(words[indexWord]);
 
 	//Contiene los idiomas de las opciones
 	let optionsLanguage = getArrayOfLangugagesProgresive(selectedLanguage);
@@ -136,10 +135,9 @@ function mainGame(words, selectedLanguage) {
 			if (!endGame && selectedClass.className == "wordOption") {
 				boolGame = true;
 				let auxSelectedOption =
-					words[indexWord][parseInt(selectedClass.parentElement.id) + 1];
-
+					words[indexWord][selectedClass.parentElement.id];
+						
 				//Comprueba si la palabra es valida
-				console.log(selectedClass.textContent.toString().toLowerCase());
 				if (
 					auxSelectedOption.toString().toLowerCase() ==
 					selectedClass.textContent.toString().toLowerCase()
