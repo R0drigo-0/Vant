@@ -146,17 +146,11 @@ function mainGame(words, selectedLanguage) {
 						"none";
 					renderAsCorrect(selectedClass);
 					setTimeout(() => {
-						console.log("AAAA");
 						selectedClass.parentElement.classList.remove("correct");
-						console.log("BBBB");
 						updateRoundCount(round);
-						console.log("CCCC");
 						removeRoundCounter();
-						console.log("DDDD");
 						removePreviousRound();
-						console.log("EEEE");
 						mainGame(words, selectedLanguage);
-						console.log("FFFF");
 						selectedClass.parentElement.parentElement.style.pointerEvents =
 							"all";
 					}, 600);
@@ -288,12 +282,6 @@ if (!cookieJSON["played_games"]) {
 if (!cookieJSON["number_correct_answer"]) {
 	document.cookie = "number_correct_answer=0; expires=" + date;
 }
-
-/*
-if (!cookieJSON["most_common_selected_language"]) {
-	document.cookie = "most_common_selected_language=None";
-}
-*/
 
 cookieJSON = cookieToJSON();
 
@@ -437,8 +425,4 @@ startAll();
 //Update cookie time
 date = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000);
 date = date.toUTCString();
-document.cookie = "expires=" + date;
-document.cookie = "expires=" + date;
-document.cookie = "expires=" + date;
-document.cookie = "expires=" + date;
 document.cookie = "expires=" + date;
