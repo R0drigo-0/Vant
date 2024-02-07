@@ -25,7 +25,6 @@ async function getWords(arrayOfId) {
 
 //Indica el tiempo que le queda al usuario por cada ronda
 let time = 7;
-
 function renderOptions(meaningWord) {
 	//Modifica el DOM y muestra al usuario la palabra
 	const question = document.createElement("h4");
@@ -147,11 +146,17 @@ function mainGame(words, selectedLanguage) {
 						"none";
 					renderAsCorrect(selectedClass);
 					setTimeout(() => {
+						console.log("AAAA");
 						selectedClass.parentElement.classList.remove("correct");
+						console.log("BBBB");
 						updateRoundCount(round);
+						console.log("CCCC");
 						removeRoundCounter();
+						console.log("DDDD");
 						removePreviousRound();
-						mainGame(words, idToLanguage(selectedLanguage));
+						console.log("EEEE");
+						mainGame(words, selectedLanguage);
+						console.log("FFFF");
 						selectedClass.parentElement.parentElement.style.pointerEvents =
 							"all";
 					}, 600);
