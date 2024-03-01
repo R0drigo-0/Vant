@@ -97,13 +97,13 @@ function mainGame(words, selectedLanguage) {
 	main.appendChild(game);
 
 	window.onclick = function (e) {
-		let idSelectedOption = e.target.id;
-		idSelectedOption = sanitize(idSelectedOption);
-		//En caso que el usuario no clicke en el nombre convierte su accion para que guarde la opcion que ha marcado.
 		let selectedClass = e.srcElement;
+		//En caso que el usuario no clicke en el nombre convierte su accion para que guarde la opcion que ha marcado.
+		if(selectedClass.classList.contains("option"))
+			selectedClass = selectedClass.children[0];
 
 		//Si el usuario hace click en el logo vuelve al inicio
-		if (!endGame && selectedClass.classList.contains("title")) {
+		if (!endGame && selectedClass.classList.contains("title") ) {
 			boolGame = false;
 			boolMenuLanguage = true;
 			boolRetry = false;

@@ -8,8 +8,6 @@ function getArrayOfWords(indexWord) {
 	return optionsWords;
 }
 
-function getArrayOfLangugages(selectedLanguage) {}
-
 function getArrayOfLangugagesProgresive(selectedLanguage) {
 	//Se crea un array con los idiomas que saldara cada palabra
 	let optionsLanguage = [];
@@ -39,19 +37,21 @@ function getCorrectAnswer(
 	arrayOfLanguages,
 	selectedLanguage
 ) {
-	let correctAnswer;
 	for (let i = 0; i < 3; i++) {
-		correctAnswer = words[arrayOfOptions[i]][parseInt(selectedLanguage) + 1];
-		if (
-			correctAnswer.toString().toLowerCase() ==
-			meaningWord.toString().toLowerCase()
-		) {
-			return words[arrayOfOptions[i]][arrayOfLanguages[i]]
-				.toString()
-				.toLowerCase();
+		const option = arrayOfOptions[i];
+		if (!option || !words[option]) {
+		  console.warn(`Option '${option}' not found in 'words' object`);
+		  continue;
 		}
-	}
-	if (!correctAnswer) throw new Error("Not correct option available");
+	  
+		const correctAnswer = words[option][parseInt(selectedLanguage) + 1];
+		if (correctAnswer !== undefined && meaningWord !== undefined &&
+			correctAnswer.toString().toLowerCase() === meaningWord.toString().toLowerCase()) {
+		  return words[option][arrayOfLanguages[i]].toString().toLowerCase();
+		}
+	  }
+	  
+	  throw new Error("Not correct option available");
 }
 
 function idToLanguage(id) {
