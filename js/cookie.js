@@ -1,14 +1,11 @@
 function cookieToJSON() {
-	let cookieArray = document.cookie.split("; ");
-	let cookieObject = {};
+  const cookieArray = document.cookie.split("; ");
+  const cookieObject = {};
 
-	cookieArray.forEach(function (pair) {
-		let nameValue = pair.split("=");
-		let name = nameValue[0];
-		let value = nameValue[1];
+  cookieArray.forEach((cookie) => {
+    const [name, value] = cookie.split("=");
+    cookieObject[name] = decodeURIComponent(value);
+  });
 
-		cookieObject[name] = value;
-	});
-
-	return cookieObject;
+  return cookieObject;
 }
